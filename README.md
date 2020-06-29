@@ -1,4 +1,14 @@
 # proposal-generator
+This thing is going to be used to generate proposals for FoB in like 20 seconds.
+
+Basic inputs for a proposal will be:
+-logo
+-company name
+-the person receiving the propsosal
+-a # of weeks
+-a subcription level
+-a selection of things they could be asking for
+-possibly a personalized blurb?
 
 ## Project setup
 ```

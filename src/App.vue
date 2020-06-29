@@ -34,21 +34,22 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld />
       <v-btn @click="makePdf">Make pdf</v-btn>
+      <proposal-container/>
     </v-content>
   </v-app>
+
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
+import ProposalContainer from "@/components/ProposalContainer.vue";
 import * as html2pdf from 'html2pdf.js';
 
 export default {
   name: "App",
 
   components: {
-    HelloWorld
+    ProposalContainer
   },
 
   data: () => ({
@@ -56,7 +57,7 @@ export default {
   }),
   methods: {
     makePdf(){
-      html2pdf(document.body)
+      html2pdf(document.getElementById("generated-proposal"))
     }
   }
 };

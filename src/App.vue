@@ -16,10 +16,11 @@
     </v-app-bar>
 
     <v-content>
-      <v-container>
+      <v-container id="proposal-form">
         <v-form ref="form" v-model="valid" :lazy-validation="lazy">
           <v-text-field v-model="content.title" label="Proposal title"/>
           <v-text-field v-model="content.name" label="Client name"/>
+          <logo-uploader @cropped="content.logo = $event"/>
           <v-select v-model="content.services" label="Service selection"
             :items="services"
             multiple
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+import LogoUploader from '@/components/LogoUploader.vue';
 import ProposalContainer from "@/components/ProposalContainer.vue";
 import * as html2pdf from "html2pdf.js";
 
@@ -47,7 +49,8 @@ export default {
   name: "App",
 
   components: {
-    ProposalContainer
+    ProposalContainer,
+    LogoUploader
   },
 
   data: () => ({
@@ -114,3 +117,13 @@ export default {
   }
 };
 </script>
+<style>
+@media print{
+  header, #proposal-form{
+    display: none !important;
+  }
+  main{
+    padding: 0 !important;
+  }
+}
+</style>

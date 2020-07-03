@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
   <div id="generated-proposal">
     <page-container :src="images.cover">
       <cover-page-content :heading="content.title" :src="content.logo" :name="content.name" />
@@ -23,11 +22,10 @@
     </page-container>
     <page-container :src="images.nextSteps">
       <next-steps-content>
-        Thanks for reviewing our proposal.
-        If you decide to pursue building this with Fueled on Bacon, you can continue by going to our site and subscribing at the {{content.level.name}} level, using the "{{content.discountCode}}" discount code for {{content.discountAmount}} off over the proposed timeline of the project.
+        <p>Thanks for reviewing our proposal.</p>
+        <p>If you decide to pursue building this with Fueled on Bacon, you can continue by going to our site and subscribing at the {{content.level.name}} level, using the "{{content.discountCode}}" discount code for {{content.discountAmount}} off over the proposed timeline of the project.</p>
       </next-steps-content>
     </page-container>
-  </div>
   </div>
 </template>
 <script>
@@ -94,8 +92,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-.container{
-  display: grid;
-}
-</style>

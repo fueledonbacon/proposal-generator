@@ -53,7 +53,7 @@ export default {
   data: () => ({
     //
     content: {
-      title: "Proposal title",
+      title: "Website Proposal",
       logo: "Prospect Logo source",
       name: "John Doe",
       services: [{ text: "Service 1" }],

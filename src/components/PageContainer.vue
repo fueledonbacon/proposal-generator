@@ -1,14 +1,15 @@
 <template>
-  <div class="proposal-page" :style='{backgroundImage: src}'>
+  <div class="proposal-page" :style='{ backgroundImage: `url(${src})` }'>
     <slot/>
   </div>
 </template>
 <script>
+import test from '@/assets/cover-page.png'
 export default {
    props: {
        src: {
            type: String,
-           default: ''
+           default: test
        }
    } 
 }

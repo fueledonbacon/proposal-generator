@@ -122,7 +122,7 @@ export default {
   header, #proposal-form{
     display: none !important;
   }
-  main{
+  main.v-main{
     padding: 0 !important;
   }
 }

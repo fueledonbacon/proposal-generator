@@ -19,5 +19,6 @@ export default {
     background-size: cover;
     height: 11in;
     width: 8.5in;
+    margin:0;
 }
 </style>

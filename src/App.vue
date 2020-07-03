@@ -56,8 +56,18 @@ export default {
     //
   }),
   methods: {
-    makePdf(){
-      html2pdf(document.getElementById("generated-proposal"))
+    async makePdf(){
+      var element = document.getElementById("generated-proposal")
+      var opt = {
+        margin:       0,
+        filename:     'test.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 3 },
+        jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      // New Promise-based usage:
+      await html2pdf().set(opt).from(element).save();
     }
   }
 };

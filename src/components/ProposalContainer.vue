@@ -7,26 +7,23 @@
       <table-of-contents-content :pages="pages" />
     </page-container>
     <page-container :src="images.document">
-      <document-content
-        heading="Cool stuff"
-      >
+      <document-content heading="Cool stuff">
         <p>Here's some stuff I want people to know.</p>
       </document-content>
     </page-container>
     <page-container :src="images.delivery">
       <delivery-timeline-content>
-        <p>The cost of this project will be
-        {{ serviceCost }}
-        </p>
         <p>
-        It will take approximately {{ content.weeks }} weeks at the {{ content.level }} level.
+          The cost of this project will be
+          {{ serviceCost }}
         </p>
+        <p>It will take approximately {{ content.weeks }} weeks at the {{ content.level.name }} level.</p>
       </delivery-timeline-content>
     </page-container>
     <page-container :src="images.nextSteps">
       <next-steps-content>
         Thanks for reviewing our proposal.
-        If you decide to pursue building this with Fueled on Bacon, you can continue by going to our site and subscribing at the {{content.level}} level, using the "{{content.discountCode}}" discount code for {{content.discountAmount}} off over the proposed {{content.weeks}} of the project.
+        If you decide to pursue building this with Fueled on Bacon, you can continue by going to our site and subscribing at the {{content.level.name}} level, using the "{{content.discountCode}}" discount code for {{content.discountAmount}} off over the proposed timeline of the project.
       </next-steps-content>
     </page-container>
   </div>
@@ -75,7 +72,7 @@ export default {
   computed: {
     serviceCost() {
       return Number(
-        this.content.level * this.content.weeks
+        this.content.level.price * this.content.weeks
       ).toLocaleString("en-US", { style: "currency", currency: "USD" });
     }
   },

@@ -92,3 +92,14 @@ export default {
   }
 };
 </script>
+<style>
+#generated-proposal {
+  background-color: #666666;
+  padding: .5in 0;
+}
+@media print{
+  #generated-proposal{
+    padding: 0;
+  }
+}
+</style>

@@ -19,8 +19,10 @@ export default {
 main{
   position: absolute;
   top: 3in;
-  left: 2in;
+  left: 50%; 
+  width: 6in;
+  transform: translateX(-50%);
   background-color: white;
-  padding: .3in;
+  padding: .4in .65in;
 }
 </style>

@@ -9,8 +9,9 @@
     <vue-croppie
       ref="croppieRef"
       :enableOrientation="true"
+      :enableResize="false"
       :boundary="{ width: 400, height: 400 }"
-      :viewport="{ width: 400, height: 400, 'type':'square' }"
+      :viewport="{ width: 400, height: 400 }"
     ></vue-croppie>
     <!-- the result -->
     <v-btn @click="crop">Crop</v-btn>
@@ -42,7 +43,7 @@ export default {
       // Current option will return a base64 version of the uploaded image with a size of 600px X 450px.
       let options = {
         type: "base64",
-        size: { width: 400, height: 400 },
+        size: { width: 600, height: 600 },
         format: "png"
       };
       this.$refs.croppieRef.result(options, output => {

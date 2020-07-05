@@ -18,22 +18,30 @@
     <v-content>
       <v-container id="proposal-form">
         <v-form ref="form" v-model="valid" :lazy-validation="lazy">
-          <v-text-field v-model="content.title" label="Proposal title"/>
-          <v-text-field v-model="content.name" label="Client name"/>
-          <logo-uploader @cropped="content.logo = $event"/>
-          <v-select v-model="content.services" label="Service selection"
-            :items="services"
-            multiple
-          />
-          <v-select v-model="content.level" :items="levels" label="Subscription level"/>
-          <v-slider
-            min="1"
-            max="20"
-            v-model="content.weeks"
-            :label="`Estimated timeline ${content.weeks} weeks`"
-          />
+          <v-row>
+            <v-col cols="12" sm="6">
+              <v-text-field v-model="content.title" label="Proposal title" />
+              <v-text-field v-model="content.name" label="Client name" />
+              <v-select
+                v-model="content.services"
+                label="Service selection"
+                :items="services"
+                multiple
+              />
+              <v-select v-model="content.level" :items="levels" label="Subscription level" />
+              <v-slider
+                min="1"
+                max="20"
+                v-model="content.weeks"
+                :label="`Estimated timeline ${content.weeks} weeks`"
+              />
+              <v-btn @click="makePdf">Print Proposal</v-btn>
+            </v-col>
+            <v-col cols="12" sm="6">
+              <logo-uploader @cropped="content.logo = $event" />
+            </v-col>
+          </v-row>
         </v-form>
-        <v-btn @click="makePdf">Make pdf</v-btn>
       </v-container>
       <proposal-container :content="content" />
     </v-content>
@@ -41,9 +49,8 @@
 </template>
 
 <script>
-import LogoUploader from '@/components/LogoUploader.vue';
+import LogoUploader from "@/components/LogoUploader.vue";
 import ProposalContainer from "@/components/ProposalContainer.vue";
-import * as html2pdf from "html2pdf.js";
 
 export default {
   name: "App",
@@ -70,8 +77,8 @@ export default {
     },
     services: [
       { text: "E-Commerce" },
-      { text: "Brand Development"},
-      { text: "Marketing Strategy"},
+      { text: "Brand Development" },
+      { text: "Marketing Strategy" }
     ],
     levels: [
       {
@@ -98,31 +105,19 @@ export default {
     ]
   }),
   methods: {
-    async makePdf() {
-      var element = document.getElementById("generated-proposal");
-      var opt = {
-        margin: 0,
-        filename: "test.pdf",
-        image: { type: "png" },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: "in", format: "letter", orientation: "portrait" }
-      };
-
-      // New Promise-based usage:
-      await html2pdf()
-        .set(opt)
-        .from(element)
-        .save();
+    makePdf() {
+      print()
     }
   }
 };
 </script>
 <style>
-@media print{
-  header, #proposal-form{
+@media print {
+  header,
+  #proposal-form {
     display: none !important;
   }
-  main.v-main{
+  main.v-main {
     padding: 0 !important;
   }
 }

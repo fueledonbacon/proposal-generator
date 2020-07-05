@@ -20,5 +20,6 @@ main{
   position: absolute;
   top: 2.5in;
   left: 3.1in;
+  width: 4.5in;
 }
 </style>

@@ -40,9 +40,13 @@ export default {
 }
 picture{
   position: absolute;
-  top: 2in;
+  top: 3.5in;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+}
+picture img{
+  width: 3in;
+  height: auto;
 }
 main{
   position: absolute;

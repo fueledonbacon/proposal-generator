@@ -1,12 +1,8 @@
 <template>
-<div class="cover-page">
-  <h1>
-    {{heading}}
-  </h1>
-  <main>
-    <slot/>
-  </main>
-</div>
+  <div class="cover-page">
+    <h1>{{heading}}</h1>
+    <main v-html="html" />
+  </div>
 </template>
 <script>
 export default {
@@ -15,20 +11,24 @@ export default {
       type: String,
       default: "test"
     },
-  },
-}
+    html: {
+      type: String,
+      default: ""
+    }
+  }
+};
 </script>
 <style scoped>
-.cover-page{
+.cover-page {
   width: 100%;
   height: 100%;
-  padding: .5in .75in 1in;
+  padding: 0.5in 0.75in 1in;
   position: relative;
 }
-h1{
+h1 {
   position: absolute;
 }
-main{
+main {
   position: absolute;
   top: 1.5in;
 }

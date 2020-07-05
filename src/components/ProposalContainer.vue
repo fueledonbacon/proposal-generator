@@ -3,13 +3,17 @@
     <page-container :src="images.cover">
       <cover-page-content :heading="content.title" :src="content.logo" :name="content.name" />
     </page-container>
-    <page-container :src="images.toc">
+    <page-container
+      :src="images.toc"
+      v-if="content.flags.showToc"
+    >
       <table-of-contents-content :pages="pages" />
     </page-container>
     <page-container :src="images.document">
-      <document-content heading="Cool stuff">
-        <p>Here's some stuff I want people to know.</p>
-      </document-content>
+      <document-content
+        heading="Cool stuff"
+        :html="content.introContent"
+      />
     </page-container>
     <page-container :src="images.delivery">
       <delivery-timeline-content>
@@ -22,6 +26,7 @@
     </page-container>
     <page-container :src="images.nextSteps">
       <next-steps-content>
+        <div v-html="content.nextStepsContent"/>
         <p>Thanks for reviewing our proposal.</p>
         <p>If you decide to pursue building this with Fueled on Bacon, you can continue by going to our site and subscribing at the {{content.level.name}} level, using the "{{content.discountCode}}" discount code for {{content.discountAmount}} off over the proposed timeline of the project.</p>
       </next-steps-content>
@@ -58,6 +63,9 @@ export default {
     content: {
       type: Object,
       default: () => ({
+        flags: {
+          showToc: true,
+        },
         title: "Proposal title",
         logo: "Prospect Logo source",
         name: "Name of client",
@@ -65,7 +73,8 @@ export default {
         weeks: 0,
         level: "Priority",
         discountCode: "new-client",
-        discountAmount: "10%"
+        discountAmount: "10%",
+        introContent: ""
       })
     }
   },

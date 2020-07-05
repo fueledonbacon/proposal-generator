@@ -1,5 +1,5 @@
 # Proposal Generator
-This thing is going to be used to generate proposals for FoB in like 20 seconds.
+This thing is going to be used to generate proposals in like 20 seconds.
 
 Basic inputs for a proposal will be:
 - logo

@@ -19,7 +19,16 @@ export default {
   background-size: cover;
   height: 11in;
   width: 8.5in;
-  margin: .5in auto;
+  margin: 0.5in auto;
+}
+@media not print{
+  @media (max-width: 768px) {
+    .proposal-page {
+      transform: scale(.45);
+      transform-origin: top left;
+      margin-left: 5vw;
+    }
+  }
 }
 @media print{
   .proposal-page{

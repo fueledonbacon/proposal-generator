@@ -8,13 +8,14 @@
     />
     <vue-croppie
       ref="croppieRef"
+      v-if="file"
       :enableOrientation="true"
       :enableResize="false"
       :boundary="{ width: 400, height: 400 }"
       :viewport="{ width: 400, height: 400 }"
     ></vue-croppie>
     <!-- the result -->
-    <v-btn @click="crop">Crop</v-btn>
+    <v-btn block @click="crop">Crop</v-btn>
   </div>
 </template>
 

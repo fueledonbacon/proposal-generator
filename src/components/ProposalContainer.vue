@@ -11,7 +11,7 @@
     </page-container>
     <page-container :src="images.document">
       <document-content
-        heading="Cool stuff"
+        heading="INTRO"
         :html="content.introContent"
       />
     </page-container>

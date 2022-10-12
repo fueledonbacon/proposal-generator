@@ -12,7 +12,7 @@
     "@ckeditor/ckeditor5-vue": "^1.0.1",
     "@mdi/font": "^3.6.95",
     "core-js": "^3.6.5",
-    "html2pdf.js": "^0.9.2",
+    "html2pdf.js": "^0.10.1",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
     "vuetify": "^2.2.11"
